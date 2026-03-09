@@ -1,0 +1,117 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\teera\\Downloads\\oop-20241125T220724Z-001\\oop\\game4_1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4C097E8F-24BF-47A0-A21A-BADCF08FB050}|game4\\game4.csproj|c:\\users\\teera\\downloads\\oop-20241125t220724z-001\\oop\\game4_1\\game4\\formbaccarat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4C097E8F-24BF-47A0-A21A-BADCF08FB050}|game4\\game4.csproj|solutionrelative:game4\\formbaccarat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C097E8F-24BF-47A0-A21A-BADCF08FB050}|game4\\game4.csproj|C:\\Users\\teera\\Downloads\\oop-20241125T220724Z-001\\oop\\game4_1\\game4\\formbaccarat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C097E8F-24BF-47A0-A21A-BADCF08FB050}|game4\\game4.csproj|solutionrelative:game4\\formbaccarat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C097E8F-24BF-47A0-A21A-BADCF08FB050}|game4\\game4.csproj|C:\\Users\\teera\\Downloads\\oop-20241125T220724Z-001\\oop\\game4_1\\game4\\tigerdragongame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C097E8F-24BF-47A0-A21A-BADCF08FB050}|game4\\game4.csproj|solutionrelative:game4\\tigerdragongame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C097E8F-24BF-47A0-A21A-BADCF08FB050}|game4\\game4.csproj|C:\\Users\\teera\\Downloads\\oop-20241125T220724Z-001\\oop\\game4_1\\game4\\cardtigerdragon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C097E8F-24BF-47A0-A21A-BADCF08FB050}|game4\\game4.csproj|solutionrelative:game4\\cardtigerdragon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C097E8F-24BF-47A0-A21A-BADCF08FB050}|game4\\game4.csproj|C:\\Users\\teera\\Downloads\\oop-20241125T220724Z-001\\oop\\game4_1\\game4\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C097E8F-24BF-47A0-A21A-BADCF08FB050}|game4\\game4.csproj|solutionrelative:game4\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4C097E8F-24BF-47A0-A21A-BADCF08FB050}|game4\\game4.csproj|C:\\Users\\teera\\Downloads\\oop-20241125T220724Z-001\\oop\\game4_1\\game4\\baccaratgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C097E8F-24BF-47A0-A21A-BADCF08FB050}|game4\\game4.csproj|solutionrelative:game4\\baccaratgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "cardTigerDragon.cs",
+              "DocumentMoniker": "C:\\Users\\teera\\Downloads\\oop-20241125T220724Z-001\\oop\\game4_1\\game4\\cardTigerDragon.cs",
+              "RelativeDocumentMoniker": "game4\\cardTigerDragon.cs",
+              "ToolTip": "C:\\Users\\teera\\Downloads\\oop-20241125T220724Z-001\\oop\\game4_1\\game4\\cardTigerDragon.cs",
+              "RelativeToolTip": "game4\\cardTigerDragon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T22:06:26.746Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Card.cs",
+              "DocumentMoniker": "C:\\Users\\teera\\Downloads\\oop-20241125T220724Z-001\\oop\\game4_1\\game4\\Card.cs",
+              "RelativeDocumentMoniker": "game4\\Card.cs",
+              "ToolTip": "C:\\Users\\teera\\Downloads\\oop-20241125T220724Z-001\\oop\\game4_1\\game4\\Card.cs",
+              "RelativeToolTip": "game4\\Card.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T21:39:50.789Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormBaccarat.cs",
+              "DocumentMoniker": "C:\\Users\\teera\\Downloads\\oop-20241125T220724Z-001\\oop\\game4_1\\game4\\FormBaccarat.cs",
+              "RelativeDocumentMoniker": "game4\\FormBaccarat.cs",
+              "ToolTip": "C:\\Users\\teera\\Downloads\\oop-20241125T220724Z-001\\oop\\game4_1\\game4\\FormBaccarat.cs",
+              "RelativeToolTip": "game4\\FormBaccarat.cs",
+              "ViewState": "AgIAAP4AAAAAAAAAAAAqwCgBAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T20:13:12.755Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TigerDragonGame.cs",
+              "DocumentMoniker": "C:\\Users\\teera\\Downloads\\oop-20241125T220724Z-001\\oop\\game4_1\\game4\\TigerDragonGame.cs",
+              "RelativeDocumentMoniker": "game4\\TigerDragonGame.cs",
+              "ToolTip": "C:\\Users\\teera\\Downloads\\oop-20241125T220724Z-001\\oop\\game4_1\\game4\\TigerDragonGame.cs",
+              "RelativeToolTip": "game4\\TigerDragonGame.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T21:27:26.173Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BaccaratGame.cs",
+              "DocumentMoniker": "C:\\Users\\teera\\Downloads\\oop-20241125T220724Z-001\\oop\\game4_1\\game4\\BaccaratGame.cs",
+              "RelativeDocumentMoniker": "game4\\BaccaratGame.cs",
+              "ToolTip": "C:\\Users\\teera\\Downloads\\oop-20241125T220724Z-001\\oop\\game4_1\\game4\\BaccaratGame.cs",
+              "RelativeToolTip": "game4\\BaccaratGame.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAIwBcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-27T14:17:40.651Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormBaccarat.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\teera\\Downloads\\oop-20241125T220724Z-001\\oop\\game4_1\\game4\\FormBaccarat.cs",
+              "RelativeDocumentMoniker": "game4\\FormBaccarat.cs",
+              "ToolTip": "C:\\Users\\teera\\Downloads\\oop-20241125T220724Z-001\\oop\\game4_1\\game4\\FormBaccarat.cs [Design]",
+              "RelativeToolTip": "game4\\FormBaccarat.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T21:33:38.121Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
