@@ -13,23 +13,35 @@ namespace game4
         private decimal playerMoney;  // เก็บจำนวนเงินของผู้เล่น
         private BaccaratGame baccaratGame;
         public string Username { get; set; }  // Property สำหรับเก็บ username
+
+        // ตัวแปรสำหรับเกม Baccarat
+        private List<decimal> playerBets = new List<decimal>();  // เก็บการเดิมพันฝั่ง Player
+        private List<decimal> bankerBets = new List<decimal>();  // เก็บการเดิมพันฝั่ง Banker
+        private decimal totalBetAmount = 0;  // ตัวแปรเก็บยอดรวมการเดิมพัน
+        private Timer countdownTimer;
+        private int countdown = 3;  // เวลาในการนับถอยหลังของบาคาร่า
+
+        // ตัวแปรสำหรับเกม Tiger-Dragon
+        private List<decimal> tigerBets = new List<decimal>();  // เก็บการเดิมพันฝั่ง Tiger
+        private List<decimal> dragonBets = new List<decimal>();  // เก็บการเดิมพันฝั่ง Dragon
+        private decimal totalTigerDragonBetAmount = 0;  // ตัวแปรเก็บยอดรวมการเดิมพันเสือมังกร
+        private Timer countdownTimer2; // Timer สำหรับเสือมังกร
+        private int countdown2 = 3; // เวลาในการนับถอยหลังของเสือมังกร
+
         public FormBaccarat()
         {
             InitializeComponent();
             baccaratGame = new BaccaratGame();
-            
-            }
-     
+        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
 
-        // ปุ่มเริ่มเกม
+        // ปุ่มเริ่มเกม (Baccarat)
         private void button1_Click(object sender, EventArgs e)
         {
-        
             if (decimal.TryParse(textBox2.Text, out playerMoney) && playerMoney > 0)  // รับยอดเงินเริ่มต้น
             {
                 MessageBox.Show($"Welcome {playerName}! You have {playerMoney:C}.");  // แสดงข้อความยินดีต้อนรับ
@@ -42,17 +54,7 @@ namespace game4
             }
         }
 
-        private List<decimal> playerBets = new List<decimal>();  // เก็บการเดิมพันฝั่ง Player
-        private List<decimal> bankerBets = new List<decimal>();  // เก็บการเดิมพันฝั่ง Banker
-        private decimal totalBetAmount = 0;  // ตัวแปรเก็บยอดรวมการเดิมพัน
-        private Timer countdownTimer;
-        private int countdown = 3;  // เวลาในการนับถอยหลัง
-        private List<decimal> tigerBets = new List<decimal>();  // เก็บการเดิมพันฝั่ง Tiger
-        private List<decimal> dragonBets = new List<decimal>();  // เก็บการเดิมพันฝั่ง Dragon
-        private decimal totalTigerDragonBetAmount = 0;  // ตัวแปรเก็บยอดรวมการเดิมพันเสือมังกร
-
-
-        // ปุ่มเริ่มเดิมพัน
+        // ปุ่มเริ่มเดิมพัน (Baccarat)
         private void button2_Click(object sender, EventArgs e)
         {
             // เคลียร์ข้อมูลการเดิมพันจากรอบก่อนหน้า
@@ -103,7 +105,7 @@ namespace game4
                 countdownTimer.Tick += CountdownTimer_Tick;  // เชื่อมโยงกับเมธอด CountdownTimer_Tick
                 countdownTimer.Start();  // เริ่มการนับถอยหลัง
             }
-            if (totalBetAmount > playerMoney)
+            else if (totalBetAmount > playerMoney) // 🔴 จุดที่แก้ไข: เปลี่ยนจาก if เป็น else if
             {
                 DialogResult result = MessageBox.Show("ยอดเงินของคุณไม่พอ คุณต้องการย้อนกลับไปหน้าหลักหรือไม่?", "ยืนยันการออก", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -119,19 +121,17 @@ namespace game4
                     Application.Exit();
                 }
             }
-            else
+            else // 🔴 ตอนนี้ else จะทำงานเฉพาะตอนที่ไม่ได้ใส่เงินเดิมพัน หรือยอดเป็น 0 เท่านั้น
             {
                 MessageBox.Show("Invalid bet amount or exceeds available balance.");  // ถ้าจำนวนเงินเดิมพันไม่ถูกต้อง
             }
-
         }
 
-        // เมธอดที่ถูกเรียกเมื่อ Timer เริ่มทำงาน (ทุกๆ 1 วินาที)
+        // เมธอดที่ถูกเรียกเมื่อ Timer เริ่มทำงาน (ทุกๆ 1 วินาที) ของ Baccarat
         private void CountdownTimer_Tick(object sender, EventArgs e)
         {
             countdown--;  // ลดเวลาทุกๆ 1 วินาที
             lblCountdown.Text = $"Time remaining: {countdown}s";  // แสดงเวลาที่เหลือใน Label
-            label8.Text = $"Time remaining: {countdown}s";  // แสดงเวลาที่เหลือใน Label
 
             if (countdown <= 0)
             {
@@ -140,7 +140,7 @@ namespace game4
             }
         }
 
-        // เมธอดที่เล่นเกมและแสดงผลเมื่อหมดเวลา
+        // เมธอดที่เล่นเกมและแสดงผลเมื่อหมดเวลา (Baccarat)
         private void PlayGameAndShowResult()
         {
             // สุ่มผลของเกม
@@ -190,7 +190,7 @@ namespace game4
             else if (result == "Tie")
             {
                 // ถ้าเกมเสมอ (Tie), คืนเงินเดิมพันทั้งหมด
-                totalWin = totalBetAmount*2; // คืนเงินทั้งหมดที่เดิมพัน
+                totalWin = totalBetAmount * 2; // คืนเงินทั้งหมดที่เดิมพัน
             }
 
             // เพิ่มเงินที่ชนะกลับไปในยอดเงินของผู้เล่น
@@ -203,8 +203,6 @@ namespace game4
             MessageBox.Show($"Result: {result}. You won: {totalWin:C}. Your current balance is {playerMoney:C}");
         }
 
-
-       
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -214,100 +212,127 @@ namespace game4
         {
             labelUsername.Text = "Welcome, " + Username;  // แสดงชื่อผู้ใช้ใน Label
         }
-       
+
+        // ปุ่มเริ่มเดิมพัน (Tiger-Dragon)
         private void button4_Click(object sender, EventArgs e)
         {
-            
-            // สร้างอ็อบเจ็กต์เกม
-            TigerDragonGame game = new TigerDragonGame();
+            // 1. เคลียร์ข้อมูลการเดิมพันเก่าก่อนเริ่มตาใหม่
+            tigerBets.Clear();
+            dragonBets.Clear();
+            totalTigerDragonBetAmount = 0;
 
-            // รับค่าคะแนนจากทั้งสองฝั่ง
-            int tigerScore, dragonScore;
-            string result = game.PlayGame(out tigerScore, out dragonScore);
+            // 2. ดึงยอดเงินเดิมพันจาก TextBox (สมมติว่าเกมเสือมังกรอยู่ใน tabPage3)
+            foreach (Control control in tabPage3.Controls)
+            {
+                if (control is TextBox)
+                {
+                    if (decimal.TryParse(control.Text, out decimal betAmount) && betAmount > 0)
+                    {
+                        totalTigerDragonBetAmount += betAmount;
 
-            // แสดงผลคะแนนใน Label
-            lblTigerScore.Text = $"Tiger Score: {tigerScore}";
-            lblDragonScore.Text = $"Dragon Score: {dragonScore}";
+                        // ตรวจสอบชื่อ TextBox ว่าลงฝั่งไหน (ชื่อช่องต้องมีคำว่า Tiger หรือ Dragon)
+                        if (control.Name.Contains("Tiger"))
+                        {
+                            tigerBets.Add(betAmount);
+                        }
+                        else if (control.Name.Contains("Dragon"))
+                        {
+                            dragonBets.Add(betAmount);
+                        }
+                    }
+                }
+            }
 
-            // แสดงผลไพ่ใน PictureBox
-            picTigerCard.Image = game.TigerCard.GetCardImage(); // แสดงภาพไพ่ของ Tiger
-            picDragonCard.Image = game.DragonCard.GetCardImage(); // แสดงภาพไพ่ของ Dragon
+            // 3. ตรวจสอบว่าใส่เงินเดิมพันและเงินพอหรือไม่
+            if (totalTigerDragonBetAmount > 0 && totalTigerDragonBetAmount <= playerMoney)
+            {
+                // 💸 หักเงินออกจากระบบทันทีที่เดิมพันผ่าน
+                playerMoney -= totalTigerDragonBetAmount;
+                label7.Text = $"Your balance: {playerMoney:C}"; // อัปเดตป้ายโชว์เงิน
 
-            // แสดงผลการชนะ
-            MessageBox.Show($"Result: {result}\nTiger Score: {tigerScore}\nDragon Score: {dragonScore}");
+                // ⏱ เริ่มต้น Timer สำหรับเสือมังกร
+                countdown2 = 3;  // ตั้งเวลานับถอยหลัง 3 วินาที
+                label8.Text = $"Time remaining: {countdown2}s"; // แสดงเวลาใน Label
+
+                countdownTimer2 = new Timer();
+                countdownTimer2.Interval = 1000; // ทำงานทุกๆ 1 วินาที
+                countdownTimer2.Tick += CountdownTimer2_Tick;
+                countdownTimer2.Start(); // เริ่มการนับถอยหลัง
+            }
+            else if (totalTigerDragonBetAmount > playerMoney)
+            {
+                MessageBox.Show("ยอดเงินของคุณไม่พอสำหรับการเดิมพันนี้ครับ", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                MessageBox.Show("กรุณาระบุจำนวนเงินเดิมพันให้ถูกต้อง", "แจ้งเตือน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
-        private void CountdownTimer1_Tick(object sender, EventArgs e)
-        {
-            //countdown--;  // ลดเวลาทุกๆ 1 วินาที
-            //label8.Text = $"Time remaining: {countdown}s";  // แสดงเวลาที่เหลือใน Label
-
-            //if (countdown <= 0)
-            //{
-            //    countdownTimer.Stop();  // หยุด Timer เมื่อเวลาเป็นศูนย์
-            //    PlayGameAndShowResult();  // เริ่มเล่นเกมและแสดงผล
-            //}
-        }
-
+        // เมธอดที่ถูกเรียกเมื่อ Timer เริ่มทำงาน (ทุกๆ 1 วินาที) ของ Tiger-Dragon
         private void CountdownTimer2_Tick(object sender, EventArgs e)
         {
-            //countdown--;  // ลดเวลาทุกๆ 1 วินาที
-            //lblCountdown.Text = $"Time remaining: {countdown}s";  // แสดงเวลาที่เหลือใน Label
+            countdown2--;  // ลดเวลาทุกๆ 1 วินาที
+            label8.Text = $"Time remaining: {countdown2}s";  // แสดงเวลาที่เหลือใน Label
 
-            //if (countdown <= 0)
-            //{
-            //    countdownTimer.Stop();  // หยุด Timer เมื่อเวลาเป็นศูนย์
-            //    PlayTigerDragonGameAndShowResult();  // เริ่มเล่นเสือมังกรและแสดงผล
-            //}
+            if (countdown2 <= 0)
+            {
+                countdownTimer2.Stop();  // หยุด Timer เมื่อเวลาเป็นศูนย์
+                PlayTigerDragonGameAndShowResult();  // เริ่มเล่นเสือมังกรและแสดงผล
+            }
         }
+
+        // เมธอดที่เล่นเกมและแสดงผลเมื่อหมดเวลา (Tiger-Dragon)
         private void PlayTigerDragonGameAndShowResult()
         {
+            // 4. สร้างอ็อบเจ็กต์เกมและเล่น
             TigerDragonGame game = new TigerDragonGame();
 
             // รับค่าคะแนนของ Tiger และ Dragon จากฟังก์ชัน PlayGame
             int tigerScore, dragonScore;
             string result = game.PlayGame(out tigerScore, out dragonScore);
 
-            // แสดงผลไพ่
-            picTigerCard.Image = Image.FromFile($"images/{game.TigerCard.Value}_of_{game.TigerCard.Suit}.png");
-            picDragonCard.Image = Image.FromFile($"images/{game.DragonCard.Value}_of_{game.DragonCard.Suit}.png");
-
             // แสดงคะแนนใน Label
             lblTigerScore.Text = $"Tiger Score: {tigerScore}";
             lblDragonScore.Text = $"Dragon Score: {dragonScore}";
 
+            // แสดงผลไพ่ (เปลี่ยนมาใช้ GetCardImage() ให้เหมือนฝั่ง Baccarat ป้องกันบัค)
+            picTigerCard.Image = game.TigerCard.GetCardImage();
+            picDragonCard.Image = game.DragonCard.GetCardImage();
+
+            // 5. คำนวณเงินรางวัล (ชนะได้ 1:1 คือได้ทุนคืนพร้อมกำไร)
             decimal totalWin = 0;
 
             if (result == "Tiger wins!")
             {
-                foreach (var bet in tigerBets)
-                {
-                    totalWin += bet; // ได้รับคืน 1:1
-                }
+                totalWin = tigerBets.Sum() * 2;
             }
             else if (result == "Dragon wins!")
             {
-                foreach (var bet in dragonBets)
-                {
-                    totalWin += bet; // ได้รับคืน 1:1
-                }
+                totalWin = dragonBets.Sum() * 2;
             }
             else if (result == "It's a tie!")
             {
-                totalWin = totalTigerDragonBetAmount * 2; // คืนเงินทั้งหมดที่เดิมพัน
+                // เสมอ คืนทุนทั้งหมด
+                totalWin = totalTigerDragonBetAmount;
             }
 
+            // 💰 คืนเงินรางวัลกลับเข้ากระเป๋าผู้เล่น
             playerMoney += totalWin;
-            label7.Text = $"Your balance: {playerMoney:C}";
-            MessageBox.Show($"Result: {result}. You won: {totalWin:C}. Your current balance is {playerMoney:C}");
+            label7.Text = $"Your balance: {playerMoney:C}"; // อัปเดตป้ายโชว์เงินล่าสุด
+
+            // แจ้งผล
+            MessageBox.Show($"Result: {result}\nTiger Score: {tigerScore}\nDragon Score: {dragonScore}\n\nYou won: {totalWin:C}");
         }
+
+        // ปุ่มรับเงิน/เริ่มเกม (หน้าแรกหรือ Tab อื่นที่จะเข้าสู่เสือมังกร)
         private void button3_Click(object sender, EventArgs e)
         {
             if (decimal.TryParse(textBox2.Text, out playerMoney) && playerMoney > 0)  // รับยอดเงินเริ่มต้น
             {
                 MessageBox.Show($"Welcome {playerName}! You have {playerMoney:C}.");  // แสดงข้อความยินดีต้อนรับ
-                tabControl1.SelectedTab = tabPage3;  // ไปที่แท็บที่ 2 (เกม Baccarat)
-                label7.Text = $"Your balance: {playerMoney:C}";  // แสดงยอดเงินใน Tab 2
+                tabControl1.SelectedTab = tabPage3;  // ไปที่แท็บที่ 3 (เกม Tiger-Dragon)
+                label7.Text = $"Your balance: {playerMoney:C}";  // แสดงยอดเงินใน Tab 3
             }
             else
             {
